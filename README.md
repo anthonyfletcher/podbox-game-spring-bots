@@ -20,10 +20,11 @@ once it stomps a flower. 32 islands, then home to bed.
 - **In a browser:** <https://anthonyfletcher.github.io/podbox-game-spring-bound/>,
   with the keys or a phone's touch wheel.
 
-Prev and Next step left and right, Menu up and Play down; the wheel steps
-down (clockwise) or up. Select undoes a step. Any button skips the story.
-**Choose level**, in the pause menu (hold Menu), goes to any of the 32
-levels. Each level keeps your best time and fewest moves against its par.
+Prev and Next step left and right, Menu up and Play down; the wheel does
+nothing in play, so a brush of it cannot spoil a level. Select undoes a
+step. Any button skips the story. **Choose level**, in the pause menu (hold
+Menu), goes back to any level reached so far. Each level keeps your best
+time and fewest moves against its par.
 
 ## Changing it
 

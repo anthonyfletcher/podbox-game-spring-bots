@@ -9,5 +9,5 @@
     "solid",
     "flowers"
   ],
-  "help": "Stomp every flower and wire on every robot. Prev, Next, Menu and Play take one step left, right, up or down; turning the wheel steps down (clockwise) or up. Select undoes a step. Walk into a robot to wire it on. A red grower leaves a flower wherever it steps off; an orange bud turns into a grower when it stomps a flower. Finish an island and a bridge rises to the next: walk across it. Any button skips the story. Choose level, in the pause menu, goes to any of the 32 levels. The mechanics are inspired by Dust Bunny, by Adam Atomic."
+  "help": "Stomp every flower and wire on every robot. Prev, Next, Menu and Play take one step left, right, up or down. Select undoes a step. Walk into a robot to wire it on. A red grower leaves a flower wherever it steps off; an orange bud turns into a grower when it stomps a flower. Finish an island and a bridge rises to the next: walk across it. Any button skips the story. Choose level, in the pause menu, goes back to any level reached so far. The mechanics are inspired by Dust Bunny, by Adam Atomic."
 }

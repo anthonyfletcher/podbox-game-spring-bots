@@ -827,20 +827,18 @@ function undo() {
 }
 
 // One press of Prev, Next, Menu or Play is one step left, right, up or
-// down; holding a button does not repeat it. A turn of the wheel (4
-// clicks, an arrow key in the IDE) is a step down clockwise, up against.
-// Select undoes a step.
+// down; holding a button does not repeat it. Select undoes a step. The
+// wheel does nothing in play, where a brush of it would spoil a level;
+// its turns are read and dropped, so none build up for the chooser.
 function readdir() {
     var now = btn(), down = now & ~held;
     held = now;
+    wheelsteps();
     if (down & 1) return 1;
     if (down & 2) return 2;
     if (down & 4) return 3;
     if (down & 8) return 0;
     if (down & 16) return 4;
-    var s = wheelsteps();
-    if (s > 0) return 0;
-    if (s < 0) return 3;
     return -1;
 }
 
