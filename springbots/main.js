@@ -164,7 +164,6 @@ function init() {
     lap(64);
     menuitem(1, "Restart level", restart);
     menuitem(2, "Choose level", choose);
-    menuitem(4, "The story", story);
     sheet(IMG.title);
     for (var y = 0; y < imgh(IMG.title); y++)
         for (var x = 0; x < imgw(IMG.title); x++)
@@ -245,13 +244,19 @@ function picking() {
     if (down & 2) pick++;
     if (down & 4) pick -= 8;
     if (down & 8) pick += 8;
-    pick = mid(0, pick, LEVELS - 1);
+    pick = mid(0, pick, opened());
     if (down & 16)
         enter(pick, eside);
 }
 
+// The last level that can be chosen: one past the furthest solved.
+function opened() {
+    return min(LEVELS - 1, max(dget(1), home ? 0 : lvl));
+}
+
 // The chooser: the level's island drawn small, five pixels a cell, in
-// its sea; its bests; and a pip for each level, gold once it is solved.
+// its sea; its bests; and a pip for each level, gold once it is solved and
+// only a dot while it is still locked.
 function chooser() {
     cls(17);
     var t = "LEVEL " + (pick + 1);
@@ -288,7 +293,7 @@ function chooser() {
     var blink = (frame() >> 3) & 1 ? 7 : 6;
     if (pick > 0)
         print("<", 21, 44, blink);
-    if (pick < LEVELS - 1)
+    if (pick < opened())
         print(">", 135, 44, blink);
     var bm = dget(BESTMOVES + pick), bt = dget(BESTTIME + pick);
     if (bm > 0) {
@@ -305,7 +310,10 @@ function chooser() {
         var cx0 = 20 + (n & 15) * 8, cy0 = 101 + (n >> 4) * 9;
         if (n == pick)
             circ(cx0, cy0, 4, 7);
-        circfill(cx0, cy0, 2, dget(BESTMOVES + n) > 0 ? 10 : 5);
+        if (n > opened())
+            pset(cx0, cy0, 5);
+        else
+            circfill(cx0, cy0, 2, dget(BESTMOVES + n) > 0 ? 10 : 5);
     }
 }
 
@@ -2238,7 +2246,8 @@ function glints(x0, y0) {
         var len = p < 16 ? p >> 3 : p < 32 ? 2 : (47 - p) >> 3;
         var x = glx[k] - PAD - x0 + flr(sin((t + k * 23) / 240.0) * 2.0);
         var y = gly[k] - PAD - y0;
-        line(x, y, x + len, y, p < 24 ? 12 : 7);
+        if (pget(x, y) == SEA && pget(x + len, y) == SEA)   // never on a bridge
+            line(x, y, x + len, y, p < 24 ? 12 : 7);
     }
 }
 
