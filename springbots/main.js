@@ -183,14 +183,6 @@ function init() {
 function title() {
     story();
     mode = TITLE;
-    pany = ISLE - 2 * gap() - logoh;   // the island moved down between them
-    wantpy = pany;
-}
-
-// The title's gap, the same above the logo, between it and the island,
-// below the island and below "PRESS ANY BUTTON".
-function gap() {
-    return flr((120 - logoh - ISLEH - 5) / 4);
 }
 
 function titled(d) {
@@ -202,23 +194,24 @@ function titled(d) {
     if (dget(2) == 0) {
         mode = STORY;
         st = 0;
-        wantpy = 0;
     } else {
         load(mid(0, dget(0), LEVELS - 1));
     }
 }
 
+// The island stays where the story plays it; the logo is centred in the
+// sea above it and "PRESS ANY BUTTON" in the sea below.
 function titles() {
-    var g = gap();
+    var y = (ISLE - logoh) >> 1;
     if (haslogo) {
-        blit(IMG.title, 80 - imgw(IMG.title) / 2, g - logotop);
+        blit(IMG.title, 80 - imgw(IMG.title) / 2, y - logotop);
     } else {
         var t = "SPRING BOTS";
-        print(t, 80 - textw(t) / 2, g, 7);
+        print(t, 80 - textw(t) / 2, y, 7);
     }
     if ((st >> 4) & 1) {
-        var p = "PRESS ANY BUTTON";
-        print(p, 80 - textw(p) / 2, 115 - g, 7);
+        var p = "PRESS ANY BUTTON", below = ISLE + ISLEH;
+        print(p, 80 - textw(p) / 2, below + ((120 - below - 5) >> 1), 7);
     }
 }
 
