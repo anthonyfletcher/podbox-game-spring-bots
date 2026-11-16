@@ -1,0 +1,37 @@
+{
+ "width": 11,
+ "height": 8,
+ "rows": [
+  "a0a0a0a0a0a0a0a0a0a0a0",
+  "a0a0a0a0a0a0a0108000a0",
+  "a0a0a0a0a0a0a0888888a0",
+  "a0a0a0a0a0a0a0888888a0",
+  "a0a0a0a0a0a0a0888888a0",
+  "a0808880888888888888a0",
+  "a08080a0881088888888a0",
+  "a0a0a0a0a0a0a0a0a0a0a0"
+ ],
+ "objects": [
+  {
+   "kind": "arrive",
+   "x": 72,
+   "y": 8,
+   "w": 8,
+   "h": 8,
+   "props": {
+    "side": 3,
+    "par": 25
+   }
+  },
+  {
+   "kind": "exit",
+   "x": 8,
+   "y": 40,
+   "w": 8,
+   "h": 8,
+   "props": {
+    "side": 1
+   }
+  }
+ ]
+}

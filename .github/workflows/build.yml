@@ -1,7 +1,7 @@
 # Builds the game into a .pbg on every push, and attaches it to a release
 # for every tag pushed. With PAGE true, a push to the main branch also puts
 # the game on GitHub Pages as a web page to play it in. The game's folder is
-# mygame; rename it and change CART below to match.
+# springbots; rename it and change CART below to match.
 
 name: Build
 
@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  CART: mygame
+  CART: springbots
   # A game that plays the owner's music cannot be a web page: set this
   # false for one.
   PAGE: true

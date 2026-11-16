@@ -1,0 +1,38 @@
+{
+ "width": 12,
+ "height": 9,
+ "rows": [
+  "a0a0a0a0a0a0a0a0a0a0a0a0",
+  "a0a0a0a0a0a0a000a0a0a0a0",
+  "a0a0a0a0a0a0a088a0a0a0a0",
+  "a0a0a0a0a0808888108888a0",
+  "a0a0a0a0a0a0a0a0a08888a0",
+  "a088808088883080a08888a0",
+  "a0a0a0a088888888a08888a0",
+  "a0a0a0a088888880808888a0",
+  "a0a0a0a0a0a0a0a0a0a0a0a0"
+ ],
+ "objects": [
+  {
+   "kind": "arrive",
+   "x": 56,
+   "y": 8,
+   "w": 8,
+   "h": 8,
+   "props": {
+    "side": 3,
+    "par": 24
+   }
+  },
+  {
+   "kind": "exit",
+   "x": 8,
+   "y": 40,
+   "w": 8,
+   "h": 8,
+   "props": {
+    "side": 1
+   }
+  }
+ ]
+}

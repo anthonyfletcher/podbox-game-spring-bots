@@ -1,7 +1,7 @@
 # CLAUDE.md
 
 This repository is one game for the Arcade of PodBox, the firmware for
-iPod Video and iPod Classic. The game is the cart folder `mygame/` (or
+iPod Video and iPod Classic. The game is the cart folder `springbots/` (or
 whatever `CART` in `.github/workflows/build.yml` names): `cart.json`,
 `main.js` and the cart's other files. GitHub builds it into a `.pbg` on
 every push, with the PodBox build action.
@@ -25,9 +25,9 @@ and `git -C .podbox pull` before a session, so it matches the firmware's
 latest release. Then, from `.podbox/arcade/sdk`:
 
 ```sh
-node pbgc.js build ../../../mygame -o ../../../mygame.pbg
+node pbgc.js build ../../../springbots -o ../../../springbots.pbg
 sh host/build.sh                  # once: pbgvm, needs gcc
-host/pbgvm ../../../mygame.pbg --ticks 300 --units --shot out.png
+host/pbgvm ../../../springbots.pbg --ticks 300 --units --shot out.png
 ```
 
 Never change a cart's `id` in `cart.json`: its saves and scores are kept

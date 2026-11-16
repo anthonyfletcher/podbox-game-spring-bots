@@ -1,54 +1,51 @@
-# My Game
+# Spring Bots
 
-A game for the Arcade on an iPod running
+A puzzle game for the Arcade on an iPod running
 [PodBox](https://github.com/anthonyfletcher/podbox).
 
-## Making it
+A robot who hates flowers dreams they are out to get him, wakes, and sets
+out across the islands to stomp every one flat. Walk into another robot and
+a springy wire joins it on; the group then moves as one, and stops whole
+when any of it would walk into the sea or a rock. Stomp every flower and
+wire on every robot, and a bridge rises to the next island. A red grower
+leaves a flower wherever it steps off; an orange bud turns into a grower
+once it stomps a flower. 32 islands, then home to bed.
 
-1. Open the [Arcade IDE](https://anthonyfletcher.github.io/podbox/ide/) in
-   Chrome or Edge, choose **Cart > Open folder**, and pick this
-   repository's `mygame` folder. Edit, run and test it there; the IDE saves
-   back into the folder.
-2. Commit and push. GitHub builds the game: open the **Actions** tab, the
-   latest run, and download the game under **Artifacts**: it comes as a
-   zip holding the `.pbg`. A mistake in the code shows there with its file
-   and line.
-3. Copy the `.pbg` into the iPod's `Games` folder, and choose **Arcade** on
-   its main menu.
+## Playing it
 
-The first build gives the game an id of its own (its saves and scores are
-kept under it) and commits that change, so pull before your next push.
+- **On the iPod:** download `springbots.pbg` from the latest
+  [release](https://github.com/anthonyfletcher/podbox-game-spring-bound/releases),
+  copy it anywhere onto the iPod, eject, and choose **Arcade** on the main
+  menu.
+- **In a browser:** <https://anthonyfletcher.github.io/podbox-game-spring-bound/>,
+  with the keys or a phone's touch wheel.
 
-To publish a version, push a tag -- `git tag v1 && git push --tags` -- and
-the `.pbg` is attached to a release of that name.
+Prev and Next step left and right, Menu up and Play down; the wheel steps
+down (clockwise) or up. Select undoes a step. Any button skips the story.
+**Choose level**, in the pause menu (hold Menu), goes to any of the 32
+levels. Each level keeps your best time and fewest moves against its par.
 
-Each push to the main branch also puts the game on the web, playable in a
-browser with the keys or a phone's touch wheel: turn on **Settings > Pages**
-with the `gh-pages` branch as its source, once, and it is at
-`https://<you>.github.io/<this repository>/`, 480 by 360 pixels, or smaller
-in a smaller window. `SCALE` in `.github/workflows/build.yml` sets the size:
-1 to 4 times 160 by 120, or `fit` to fill the window. GitHub serves Pages
-free for a public repository; a private one needs a paid plan. A game that plays the
-owner's music cannot be a web page: set `PAGE` to `false` in
-`.github/workflows/build.yml` for one.
+## Changing it
 
-To rename the game, change `name` in `mygame/cart.json`. To rename the
-folder, change `CART` in `.github/workflows/build.yml` to match.
+The game is the `springbots` folder. Open it in the
+[Arcade IDE](https://anthonyfletcher.github.io/podbox/ide/) in Chrome or
+Edge with **Cart > Open folder**; it saves back into the folder. Every push
+builds `springbots.pbg` (the **Actions** tab, under **Artifacts**) and puts
+the web page up to date. Push a tag -- `git tag v2 && git push --tags` --
+to attach the `.pbg` to a release of that name.
 
-## Learning
+The levels are maps `level01` to `level32`. `tools/generator.py` makes
+levels by search and checks each one has a solution, writing each map's
+par (its shortest solution) as it goes:
+`python tools/generator.py --level 12` prints one with its solution.
 
-- [The manual](https://github.com/anthonyfletcher/podbox/blob/master/arcade/manual/README.md):
-  a tutorial that builds a whole game, then a chapter for each part of the
-  Arcade.
-- [Every function](https://github.com/anthonyfletcher/podbox/blob/master/arcade/sdk/api.md),
-  one line each.
-
-With [Claude Code](https://claude.com/claude-code), the Arcade skill in
+The [Arcade manual](https://github.com/anthonyfletcher/podbox/blob/master/arcade/manual/README.md)
+covers the language and every function. With
+[Claude Code](https://claude.com/claude-code), the Arcade skill in
 `.claude/skills/podbox-arcade` is loaded when you ask for help with the
 game.
 
 ## Licence
 
-The template is under the 0BSD licence (`LICENSE`): your game is yours,
-under whatever licence you choose. The skill in `.claude/skills` is text
-from the PodBox manual, under the GPL version 2.
+This repository is under the 0BSD licence (`LICENSE`). The skill in
+`.claude/skills` is text from the PodBox manual, under the GPL version 2.

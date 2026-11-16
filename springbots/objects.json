@@ -1,0 +1,7 @@
+{
+  "arrive": { "help": "Where the player steps onto the island, from the last level's bridge",
+              "props": { "side": { "default": 1, "help": "The side the bridge leaves by: 0 down, 1 left, 2 right, 3 up" },
+                         "par": { "default": 0, "help": "Moves in the shortest solution, shown as par once the level is solved" } } },
+  "exit": { "help": "Where the bridge to the next level leaves, once every flower is stomped",
+            "props": { "side": { "default": 2, "help": "The side the bridge leaves by: 0 down, 1 left, 2 right, 3 up" } } }
+}
