@@ -45,6 +45,13 @@ covers the language and every function. With
 `.claude/skills/podbox-arcade` is loaded when you ask for help with the
 game.
 
+## Credits
+
+The mechanics are inspired by
+[Dust Bunny](https://www.lexaloffle.com/bbs/?pid=166577) by
+[Adam Atomic](https://adamatomic.itch.io/), a PICO-8 game. No code or
+level design is taken from it: the code, art and levels here are new.
+
 ## Licence
 
 This repository is under the 0BSD licence (`LICENSE`). The skill in
