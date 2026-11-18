@@ -136,6 +136,7 @@ const RED = 21;           // and the red grower
 var trx = new Int32Array(BMAX), try0 = new Int32Array(BMAX);
 var trup = new Uint8Array(BMAX), trn = 0;  // the grower's trail of flowers
 var pick = 0;             // the level the chooser is on
+var was = PLAY, pickat = 0;  // the mode it was opened from, and when
 var actor = -1, bud = 0;    // the intro's robot while awake, and always
 var ph = 0, pt = 0;       // its part of the intro, and ticks into it
 var introat = 0;          // the tick the intro began
@@ -223,12 +224,17 @@ function restart() {
 // Every level can be chosen, and the player walks in to it.
 function choose() {
     pick = home ? 0 : lvl;
+    if (mode != PICK) {
+        was = mode;
+        pickat = frame();
+    }
     mode = PICK;
     held = btn();
 }
 
 // The chooser: Prev and Next or the wheel a level at a time, Menu and
-// Play a row; Select walks in to it.
+// Play a row; Select walks in to it, or back to the level it was opened
+// on just as it was left, its clock not counting the time spent here.
 function picking() {
     var now = btn(), down = now & ~held;
     held = now;
@@ -238,8 +244,12 @@ function picking() {
     if (down & 4) pick -= 8;
     if (down & 8) pick += 8;
     pick = mid(0, pick, opened());
-    if (down & 16)
+    if (down & 16 && !home && pick == lvl) {
+        mode = was;
+        startat += frame() - pickat;
+    } else if (down & 16) {
         enter(pick, eside);
+    }
 }
 
 // The last level that can be chosen: one past the furthest solved.
