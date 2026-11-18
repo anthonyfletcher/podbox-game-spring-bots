@@ -14,10 +14,10 @@ once it stomps a flower. 32 islands, then home to bed.
 ## Playing it
 
 - **On the iPod:** download `springbots.pbg` from the latest
-  [release](https://github.com/anthonyfletcher/podbox-game-spring-bound/releases),
+  [release](https://github.com/anthonyfletcher/podbox-game-spring-bots/releases),
   copy it anywhere onto the iPod, eject, and choose **Arcade** on the main
   menu.
-- **In a browser:** <https://anthonyfletcher.github.io/podbox-game-spring-bound/>,
+- **In a browser:** <https://anthonyfletcher.github.io/podbox-game-spring-bots/>,
   with the keys or a phone's touch wheel.
 
 Prev and Next step left and right, Menu up and Play down; the wheel does
