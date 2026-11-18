@@ -1616,7 +1616,7 @@ function script(d, ready) {
     }
     if (st == 306) {
         potstate = 1;
-        potvx = 0.15;
+        potvx = 0.07;         // to land where he stomps, inside the wall
         potvy = -1.6;
     }
     if (st == 350)
